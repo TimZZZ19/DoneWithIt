@@ -13,6 +13,8 @@ export default function App() {
     console.log("cl");
   };
 
+  console.log("add a new console log");
+
   return (
     <SafeAreaView style={styles.container}>
       <Text numberOfLines={1} onPress={handlePress}>
