@@ -1,36 +1,36 @@
-import { StatusBar } from "expo-status-bar";
 import {
   StyleSheet,
-  Text,
-  TouchableHighlight,
-  Image,
   SafeAreaView,
+  StatusBar,
+  Button,
+  Alert,
+  Platform,
+  View,
 } from "react-native";
 
 export default function App() {
   const handlePress = () => {
-    console.log("app ");
-    console.log("cl");
+    Alert.alert("My title", "My message", [
+      {
+        text: "Yes",
+        onPress: () => console.log("Yes"),
+      },
+      {
+        text: "No",
+        onPress: () => console.log("No"),
+      },
+    ]);
   };
-
-  console.log("add a new console log");
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text numberOfLines={1} onPress={handlePress}>
-        Start working on your app!
-      </Text>
-      <TouchableHighlight onPress={() => console.log("touch")}>
-        <Image
-          blurRadius={1}
-          source={{
-            width: 200,
-            height: 300,
-            uri: "https://picsum.photos/id/237/200/300",
-          }}
-        />
-      </TouchableHighlight>
-      <StatusBar style="auto" />
+      <Button
+        title="Click Me"
+        onPress={() =>
+          Alert.prompt("My title", "My message", (text) => console.log(text))
+        }
+        color="orange"
+      />
     </SafeAreaView>
   );
 }
@@ -39,7 +39,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "dodgerblue",
-    alignItems: "center",
-    justifyContent: "center",
   },
 });
